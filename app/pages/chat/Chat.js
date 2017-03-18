@@ -11,7 +11,7 @@ import {
   Alert,
 } from 'react-native';
 
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/Ionicons';
 import styleConstant from '../../style/styleConstant';  
 import styleChat from '../../style/chat/styleChat';
 
@@ -28,7 +28,20 @@ class Register extends React.Component {
   }
 
   componentDidMount() {
-    //Actions.refresh({ renderRightButton: this.renderRightButton.bind(this) });
+    Actions.refresh({ renderRightButton: this.renderRightButton.bind(this) });
+  }
+
+  renderRightButton() {
+    return (
+      <Icon.Button
+        name="md-more"
+        backgroundColor="transparent"
+        underlayColor="transparent"
+        style={styleConstant.rightBtn}
+        activeOpacity={0.8}
+        onPress={() => this.onPress("1")}
+      />
+    );
   }
 
   genRows(){
@@ -39,6 +52,10 @@ class Register extends React.Component {
     return dataBlob;
   }
 
+  onPress() {
+    Alert.alert("1");
+  }
+
   pressRow(rowID){
     alert("hellow"+rowID);
   }
@@ -47,31 +64,27 @@ class Register extends React.Component {
     return (
       <TouchableOpacity onPress={()=>this.pressRow(rowID)}>
         <View style={styleChat.itemWrap}>
-          <View style={styleChat.profileWrap}>
-              <Image source={require('../../images/mm.jpg')} style={styleChat.profile}/>
-              <View style={styleChat.msgCountWrap}>
-                <Text style={styleChat.msgCount}>2</Text>
-              </View>
-          </View>
-
-          <View style={styleChat.itemInfo}>
-            <View style={styleChat.baseInfo}>
-              <Text style={styleChat.profileName}>我是女生</Text>
-              <Text style={styleChat.distance}>今天</Text>
+          <Text style={styleChat.itemTime}>今天 09:25</Text>
+          <View style={styleChat.itemLeft}>
+            <Image source={require('../../images/mm.jpg')} style={styleChat.profile}/>
+            <View style={styleChat.msgWrap}>
+              <Text style={styleChat.leftMsg}>
+                怎么不说话了呢怎么不说话了呢怎么不说话了呢怎么不说话了呢怎么不说话了呢
+              </Text>
             </View>
-            <Text style={styleChat.sign}>一次就好，我陪你去天荒地老</Text>
+          </View>
+          <View style={styleChat.itemRight}>
+            <View style={styleChat.msgWrap}>
+              <Text style={styleChat.rightMsg}>
+                怎么不说话了
+              </Text>
+            </View>
+            <Image source={require('../../images/mm.jpg')} style={styleChat.profile}/>
+
           </View>
         </View>
       </TouchableOpacity>
     );
-  }
-
-  onPress() {
-    Alert.alert("1");
-  }
-
-  renderRightButton() {
-    
   }
 
   render() {

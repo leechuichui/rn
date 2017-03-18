@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import constant from '../styleConstant';  
 
-const style_register = StyleSheet.create({
+const styleChat = StyleSheet.create({
   container: {
     flex:1,
     justifyContent: 'flex-start',
@@ -11,32 +11,66 @@ const style_register = StyleSheet.create({
     backgroundColor:'#eff1f0',
   },
   itemWrap:{
+    // flexDirection: 'row',
+    // paddingTop:15,
+    paddingBottom:15,
+    // borderBottomColor:'#d1d3d2',
+    // borderBottomWidth:1
+  },
+  itemTime:{
+    textAlign:'center',
+    color:'#9c9c9c',
+    fontSize:16,
+    marginTop:20
+  },
+  itemLeft:{
     flexDirection: 'row',
     paddingTop:15,
-    paddingBottom:15,
-    borderBottomColor:'#d1d3d2',
-    borderBottomWidth:1
+    justifyContent:'flex-start'
   },
-  profileWrap:{
-  },
-  msgCountWrap:{
-    width:20,
-    height:20,
-    alignItems:'center',
-    borderRadius:10,
-    backgroundColor:'#f54d33',
-    position:'absolute',
-    right:-10,
-    top:-10
-  },
-  msgCount:{
-    color:'#fff',
-    fontSize:12,
+  itemRight:{
+    flexDirection: 'row',
+    paddingTop:15,
+    justifyContent:'flex-end'
   },
   profile:{
     width:60,
     height:60,
-    borderRadius:5,
+    borderRadius:30,
+  },
+  msgWrap:{
+    flexDirection: 'row',
+    justifyContent:'flex-end',
+    paddingTop:30,
+    flex:1
+  },
+  leftMsg:{
+    flex:0,
+    backgroundColor:'#e6e6e6',
+    color:'#3f3f3f',
+    paddingLeft:10,
+    paddingRight:8,
+    paddingTop:5,
+    lineHeight:25,
+    paddingBottom:10,
+    marginLeft:10,
+    borderBottomLeftRadius:20,
+    borderBottomRightRadius:20,
+    borderTopRightRadius:20,
+  },
+  rightMsg:{
+    flex:0,
+    backgroundColor:'#5f7d88',
+    color:'#fff',
+    paddingLeft:10,
+    paddingRight:8,
+    paddingTop:5,
+    marginRight:10,
+    lineHeight:25,
+    paddingBottom:10,
+    borderBottomLeftRadius:20,
+    borderBottomRightRadius:20,
+    borderTopLeftRadius:20,
   },
   itemInfo:{
     flex:1,
@@ -77,4 +111,4 @@ const style_register = StyleSheet.create({
   }
 });
 
-export default style_register;
+export default styleChat;

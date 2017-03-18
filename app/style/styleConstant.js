@@ -50,6 +50,10 @@ const constant = {
     fontSize:18,
     color:'#fff',
     marginLeft:5
+  },
+  rightBtn:{
+    flex:1,
+
   }
 }
 

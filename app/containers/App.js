@@ -27,6 +27,7 @@ import SetPassword from '../pages/user/SetPassword';
 
 import Find from '../pages/find/Find';
 
+import ChatList from '../pages/chat/ChatList';
 import Chat from '../pages/chat/Chat';
 
 import TabIcon from '../components/TabIcon';
@@ -77,7 +78,14 @@ class App extends React.Component {
           <Scene key="registerCode" title="验证码" component={RegisterCode}></Scene>
           <Scene key="registerProfile" component={RegisterProfile} ></Scene>
           <Scene key="setPassword" title="设置密码" component={SetPassword} ></Scene>
-          <Scene key="tabbar" tabs pressOpacity={0.8} type={ActionConst.REPLACE} initial>
+          <Scene
+            initial
+            hideTabBar
+            key="chat"
+            title="剧情再美，终究是"
+            component={Chat}
+          />
+          <Scene key="tabbar" tabs pressOpacity={0.8} type={ActionConst.REPLACE} >
             <Scene
               key="main"
               component={Find}
@@ -93,9 +101,8 @@ class App extends React.Component {
               iconName="md-eye"
             />
             <Scene
-              initial
-              key="chat"
-              component={Chat}
+              key="chatList"
+              component={ChatList}
               title="消息"
               leftTitle="消息"
               leftButtonTextStyle={styleConstant.left_title}
