@@ -1,0 +1,5 @@
+/node_modules/
+/ios/build/
+/android/build/
+/.idea/
+npm-debug.log
