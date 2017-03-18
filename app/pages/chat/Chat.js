@@ -13,7 +13,7 @@ import {
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styleConstant from '../../style/styleConstant';  
-import styleFind from '../../style/find/styleFind.js';
+import styleChat from '../../style/chat/styleChat';
 
 import { Actions } from 'react-native-router-flux';
 import Button from '../../components/Button';
@@ -46,23 +46,20 @@ class Register extends React.Component {
   renderRow(rowData, sectionID, rowID){
     return (
       <TouchableOpacity onPress={()=>this.pressRow(rowID)}>
-        <View style={styleFind.itemWrap}>
-          <Image source={require('../../images/mm.jpg')} style={styleFind.profile}/>
-          <View style={styleFind.itemInfo}>
-            <View style={styleFind.baseInfo}>
-              <Text style={styleFind.profileName}>丫丫</Text>
-              <Text style={styleFind.distance}>14.71km</Text>
-            </View>
-            <View style={styleConstant.flexRow}>
-              <View style={styleFind.sexWrap}>
-                <Icon name="mars" color="#fff" size={15}/>
+        <View style={styleChat.itemWrap}>
+          <View style={styleChat.profileWrap}>
+              <Image source={require('../../images/mm.jpg')} style={styleChat.profile}/>
+              <View style={styleChat.msgCountWrap}>
+                <Text style={styleChat.msgCount}>2</Text>
               </View>
-              <Text style={styleFind.constellation}>处女座</Text>
+          </View>
+
+          <View style={styleChat.itemInfo}>
+            <View style={styleChat.baseInfo}>
+              <Text style={styleChat.profileName}>我是女生</Text>
+              <Text style={styleChat.distance}>今天</Text>
             </View>
-            <Text style={styleFind.sign}>一次就好，我陪你去天荒地老</Text>
-            <View style={styleFind.labelWrap}>
-              <Text style={styleFind.labelText}>叛逆</Text><Text style={styleFind.labelText}>有女友永远</Text>
-            </View>
+            <Text style={styleChat.sign}>一次就好，我陪你去天荒地老</Text>
           </View>
         </View>
       </TouchableOpacity>
@@ -79,7 +76,7 @@ class Register extends React.Component {
 
   render() {
     return (
-      <View style={styleFind.container}>
+      <View style={styleChat.container}>
         <ListView dataSource={this.state.dataSource} renderRow={this.renderRow.bind(this)}/>
       </View>
     );

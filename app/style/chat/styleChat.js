@@ -17,14 +17,30 @@ const style_register = StyleSheet.create({
     borderBottomColor:'#d1d3d2',
     borderBottomWidth:1
   },
+  profileWrap:{
+  },
+  msgCountWrap:{
+    width:20,
+    height:20,
+    alignItems:'center',
+    borderRadius:10,
+    backgroundColor:'#f54d33',
+    position:'absolute',
+    right:-10,
+    top:-10
+  },
+  msgCount:{
+    color:'#fff',
+    fontSize:12,
+  },
   profile:{
-    width:70,
-    height:70,
+    width:60,
+    height:60,
     borderRadius:5,
-    marginRight:10
   },
   itemInfo:{
     flex:1,
+    marginLeft:20
   },
   baseInfo:{
     flexDirection: 'row',
@@ -39,21 +55,9 @@ const style_register = StyleSheet.create({
     fontSize:16,
     marginBottom:6
   },
-  sexWrap:{
-    width:40,
-    height:20,
-    backgroundColor:'#fe97aa',
-    alignItems:'center',
-    justifyContent: 'center',
-    borderRadius:8,
-  },
-  constellation:{
-    color:'#b9cbd7',
-    marginLeft:13
-  },
   sign:{
     fontSize:14,
-    color:'#a7a9a8',
+    color:'#979797',
     marginTop:6
   },
   labelWrap:{

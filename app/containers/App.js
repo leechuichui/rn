@@ -25,11 +25,9 @@ import RegisterCode from '../pages/user/RegisterCode';
 import RegisterProfile from '../pages/user/RegisterProfile';
 import SetPassword from '../pages/user/SetPassword';
 
-/** find -- start -- **/
-
 import Find from '../pages/find/Find';
 
-/** find -- end -- **/
+import Chat from '../pages/chat/Chat';
 
 import TabIcon from '../components/TabIcon';
 
@@ -95,11 +93,16 @@ class App extends React.Component {
               iconName="md-eye"
             />
             <Scene
-              key="category"
-              component={Register}
-              title="分类"
+              initial
+              key="chat"
+              component={Chat}
+              title="消息"
+              leftTitle="消息"
+              leftButtonTextStyle={styleConstant.left_title}
+              onLeft={()=>{return false;}}
+              titleOpacity={'0'}
               icon={TabIcon}
-              iconName="md-pricetags"
+              iconName="md-mail"
             />
             <Scene
               key="feedback"

@@ -13,7 +13,7 @@ import {
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styleConstant from '../../style/styleConstant';  
-import styleFind from '../../style/find/styleFind.js';
+import styleFind from '../../style/find/styleFind';
 
 import { Actions } from 'react-native-router-flux';
 import Button from '../../components/Button';
