@@ -80,7 +80,6 @@ class Register extends React.Component {
               </Text>
             </View>
             <Image source={require('../../images/mm.jpg')} style={styleChat.profile}/>
-
           </View>
         </View>
       </TouchableOpacity>
