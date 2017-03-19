@@ -6,9 +6,11 @@ const styleChat = StyleSheet.create({
   container: {
     flex:1,
     justifyContent: 'flex-start',
+    backgroundColor:'#eff1f0',
+  },
+  chatList:{
     paddingRight:10,
     paddingLeft:10,
-    backgroundColor:'#eff1f0',
   },
   itemWrap:{
     // flexDirection: 'row',
@@ -72,42 +74,29 @@ const styleChat = StyleSheet.create({
     borderBottomRightRadius:20,
     borderTopLeftRadius:20,
   },
-  itemInfo:{
+  sendSection:{
+    height:100,
+    borderTopColor:"#d0d2d1",
+    borderTopWidth:1
+  },
+  sendWrap:{
+    flexDirection: 'row',
+  },
+  inputMsg:{
     flex:1,
-    marginLeft:20
+    height:50,
+    color:"#333",
   },
-  baseInfo:{
+  sendBtn:{
+    marginLeft:10
+  },
+  sendBar:{
     flexDirection: 'row',
-    justifyContent:'space-between',
+    marginTop:5,
+    marginLeft:10
   },
-  distance:{
-    color:'#c9c9c9',
-    fontSize:14
-  },
-  profileName:{
-    color:'#333',
-    fontSize:16,
-    marginBottom:6
-  },
-  sign:{
-    fontSize:14,
-    color:'#979797',
-    marginTop:6
-  },
-  labelWrap:{
-    flexDirection: 'row',
-  },
-  labelText:{
-    color:'#fff',
-    fontSize:13,
-    paddingTop:2,
-    paddingBottom:3,
-    paddingLeft:8,
-    paddingRight:8,
-    borderRadius:12,
-    backgroundColor:'#8bd5a4',
-    marginRight:10,
-    marginTop:6
+  barButton:{
+    marginLeft:-5,
   }
 });
 

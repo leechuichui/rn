@@ -13,7 +13,7 @@ import {
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import styleConstant from '../../style/styleConstant';  
-import styleChat from '../../style/chat/styleChat';
+import styleTruth from '../../style/chat/styleTruth';
 
 import { Actions } from 'react-native-router-flux';
 import Button from '../../components/Button';
@@ -28,7 +28,7 @@ class Register extends React.Component {
   }
 
   componentDidMount() {
-    Actions.refresh({ renderRightButton: this.renderRightButton.bind(this) });
+    //Actions.refresh({ renderRightButton: this.renderRightButton.bind(this) });
   }
 
   renderRightButton() {
@@ -62,63 +62,78 @@ class Register extends React.Component {
 
   renderRow(rowData, sectionID, rowID){
     return (
-      <TouchableOpacity onPress={()=>this.pressRow(rowID)}>
-        <View style={styleChat.itemWrap}>
-          <Text style={styleChat.itemTime}>今天 09:25</Text>
-          <View style={styleChat.itemLeft}>
-            <Image source={require('../../images/mm.jpg')} style={styleChat.profile}/>
-            <View style={styleChat.msgWrap}>
-              <Text style={styleChat.leftMsg}>
-                怎么不说话了呢怎么不说话了呢怎么不说话了呢怎么不说话了呢怎么不说话了呢
-              </Text>
-            </View>
-          </View>
-          <View style={styleChat.itemRight}>
-            <View style={styleChat.msgWrap}>
-              <Text style={styleChat.rightMsg}>
-                怎么不说话了
-              </Text>
-            </View>
-            <Image source={require('../../images/mm.jpg')} style={styleChat.profile}/>
+      <View style={[styleTruth.itemWrap,styleTruth.itemWrapLeft]}>
+        <Text style={styleTruth.itemTitle}>1.你看过的最好看的电视</Text>
+        <View style={styleTruth.itemLeft}>
+          <Text style={styleTruth.answer}>请保持文明社交礼仪</Text>
+          <View style={styleTruth.itemProfileWrap}>
+            <Image source={require('../../images/mm.jpg')} style={styleTruth.profile}/>
           </View>
         </View>
-      </TouchableOpacity>
+      </View>
+    );
+  }
+
+  renderHeader(){
+    return (
+      <View>
+        <View style={styleTruth.titleSection}>
+          <View style={styleTruth.titleWrap}>
+            <Text style={styleTruth.title}>完成15轮真心话游戏，可解锁对方资料</Text>
+            <Text style={styleTruth.title}>请保持文明社交礼仪，行为不良将受到严厉处罚</Text>
+          </View>
+        </View>
+        <Text style={styleTruth.itemTime}>今天 09:25</Text>
+      </View>
     );
   }
 
   render() {
     return (
-      <View style={styleChat.container}>
-        <ListView style={styleChat.chatList} dataSource={this.state.dataSource} renderRow={this.renderRow.bind(this)}/>
-        <View style={styleChat.sendSection}>
-          <View style={styleChat.sendWrap}>
-            <TextInput
-              style={styleChat.inputMsg}
-              placeholder={"发消息..."}
-              underlineColorAndroid="transparent"
-              placeholdertTextColor="#999"
-              multiline={true}
-              numberOfLines={2}
+      <View style={styleTruth.container}>
+        <ListView
+          style={styleTruth.truthList}
+          dataSource={this.state.dataSource}
+          renderRow={this.renderRow.bind(this)}
+          renderHeader={this.renderHeader.bind(this)}
+        />
+        <View style={styleTruth.sendSection}>
+          <View style={styleTruth.sendWrap}>
+            <Button
+              text="真心话大冒险"
+              containerStyle={styleTruth.truthBtnWrap}
+              activeOpacity={0.8}
+              style={styleTruth.truthBtn}
             />
             <Icon.Button
-              name="md-send"
+              name="md-happy"
+              backgroundColor="transparent"
+              underlayColor="transparent"
+              color="#a6a8a7"
+              style={{marginLeft:10}}
+              iconStyle={{marginRight:0}}
+              size={25}
+              activeOpacity={0.8}
+              onPress={() => this.onPress("1")}
+            />
+            <Icon.Button
+              name="md-add"
               backgroundColor="transparent"
               underlayColor="transparent"
               color="#a6a8a7"
               size={25}
-              style={styleConstant.sendBtn}
               activeOpacity={0.8}
               onPress={() => this.onPress("1")}
             />
           </View>
-          <View style={styleChat.sendBar}>
+          <View style={styleTruth.sendBar}>
             <Icon.Button
               name="md-camera"
               backgroundColor="transparent"
               underlayColor="transparent"
               color="#cdcdcd"
               size={25}
-              style={styleChat.barButton}
+              style={styleTruth.barButton}
               activeOpacity={0.8}
               onPress={() => this.onPress("1")}
             />

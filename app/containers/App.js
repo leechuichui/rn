@@ -29,6 +29,7 @@ import Find from '../pages/find/Find';
 
 import ChatList from '../pages/chat/ChatList';
 import Chat from '../pages/chat/Chat';
+import Truth from '../pages/chat/Truth';
 
 import TabIcon from '../components/TabIcon';
 
@@ -78,13 +79,17 @@ class App extends React.Component {
           <Scene key="registerCode" title="验证码" component={RegisterCode}></Scene>
           <Scene key="registerProfile" component={RegisterProfile} ></Scene>
           <Scene key="setPassword" title="设置密码" component={SetPassword} ></Scene>
+          <Scene hideTabBar key="chat" title="剧情再美，终究是" component={Chat}></Scene>
           <Scene
             initial
             hideTabBar
-            key="chat"
-            title="剧情再美，终究是"
-            component={Chat}
+            key="truth"
+            component={Truth}
+            rightTitle="更多"
+            rightButtonTextStyle={styleConstant.right_title}
+            onRight={()=>{return false;}}
           />
+
           <Scene key="tabbar" tabs pressOpacity={0.8} type={ActionConst.REPLACE} >
             <Scene
               key="main"

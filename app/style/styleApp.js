@@ -7,8 +7,6 @@ const style_app = StyleSheet.create({
     backgroundColor: constant.defaultColor,
     borderBottomColor:constant.defaultColor,
     marginTop:20,
-    fontSize:18,
-    color:'#fff',
   },
   navBarTitle: {
     color: '#fff',
