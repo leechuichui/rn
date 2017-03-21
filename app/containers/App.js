@@ -24,6 +24,7 @@ import Register from '../pages/user/Register';
 import RegisterCode from '../pages/user/RegisterCode';
 import RegisterProfile from '../pages/user/RegisterProfile';
 import SetPassword from '../pages/user/SetPassword';
+import Profile from '../pages/user/Profile';
 
 import Find from '../pages/find/Find';
 
@@ -83,13 +84,20 @@ class App extends React.Component {
           <Scene
             initial
             hideTabBar
+            key="profile"
+            component={Profile}
+            leftTitle="梦梦"
+            leftButtonTextStyle={styleConstant.left_title}
+            onLeft={()=>{return false;}}
+          />
+          <Scene
+            hideTabBar
             key="truth"
             component={Truth}
             rightTitle="更多"
             rightButtonTextStyle={styleConstant.right_title}
             onRight={()=>{return false;}}
           />
-
           <Scene key="tabbar" tabs pressOpacity={0.8} type={ActionConst.REPLACE} >
             <Scene
               key="main"
