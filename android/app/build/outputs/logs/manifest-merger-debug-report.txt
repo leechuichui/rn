@@ -22,10 +22,38 @@ ADDED from AndroidManifest.xml:6:5
 uses-permission#android.permission.SYSTEM_ALERT_WINDOW
 ADDED from AndroidManifest.xml:7:5
 MERGED from com.facebook.react:react-native:0.41.2:11:5
+MERGED from com.facebook.react:react-native:0.41.2:11:5
 	android:name
 		ADDED from AndroidManifest.xml:7:22
 uses-sdk
 ADDED from AndroidManifest.xml:9:5
+MERGED from lianlian:react-native-vector-icons:unspecified:7:5
+MERGED from com.facebook.react:react-native:0.41.2:7:5
+MERGED from com.android.support:appcompat-v7:23.0.1:20:5
+MERGED from com.android.support:support-v4:23.4.0:20:5
+MERGED from com.android.support:recyclerview-v7:23.4.0:20:5
+MERGED from com.android.support:support-v4:23.4.0:20:5
+MERGED from com.facebook.fbui.textlayoutbuilder:textlayoutbuilder:1.0.0:14:5
+MERGED from com.facebook.fresco:fresco:0.11.0:5:5
+MERGED from com.facebook.fresco:drawee:0.11.0:5:5
+MERGED from com.android.support:support-v4:23.4.0:20:5
+MERGED from com.facebook.fresco:fbcore:0.11.0:5:5
+MERGED from com.facebook.fresco:fbcore:0.11.0:5:5
+MERGED from com.facebook.fresco:imagepipeline:0.11.0:5:5
+MERGED from com.android.support:support-v4:23.4.0:20:5
+MERGED from com.facebook.fresco:fbcore:0.11.0:5:5
+MERGED from com.facebook.fresco:imagepipeline-base:0.11.0:5:5
+MERGED from com.android.support:support-v4:23.4.0:20:5
+MERGED from com.facebook.fresco:fbcore:0.11.0:5:5
+MERGED from com.facebook.fresco:imagepipeline-okhttp3:0.11.0:5:5
+MERGED from com.facebook.fresco:fbcore:0.11.0:5:5
+MERGED from com.facebook.fresco:imagepipeline:0.11.0:5:5
+MERGED from com.android.support:support-v4:23.4.0:20:5
+MERGED from com.facebook.fresco:fbcore:0.11.0:5:5
+MERGED from com.facebook.fresco:imagepipeline-base:0.11.0:5:5
+MERGED from com.android.support:support-v4:23.4.0:20:5
+MERGED from com.facebook.fresco:fbcore:0.11.0:5:5
+MERGED from com.facebook.soloader:soloader:0.1.0:2:3
 MERGED from com.android.support:appcompat-v7:23.0.1:20:5
 MERGED from com.android.support:support-v4:23.4.0:20:5
 MERGED from com.facebook.react:react-native:0.41.2:7:5
@@ -64,6 +92,17 @@ MERGED from com.facebook.soloader:soloader:0.1.0:2:3
 		INJECTED from AndroidManifest.xml:0:0
 application
 ADDED from AndroidManifest.xml:13:5
+MERGED from com.facebook.react:react-native:0.41.2:13:5
+MERGED from com.android.support:appcompat-v7:23.0.1:22:5
+MERGED from com.android.support:support-v4:23.4.0:22:5
+MERGED from com.android.support:support-v4:23.4.0:22:5
+MERGED from com.android.support:support-v4:23.4.0:22:5
+MERGED from com.android.support:support-v4:23.4.0:22:5
+MERGED from com.android.support:support-v4:23.4.0:22:5
+MERGED from com.android.support:support-v4:23.4.0:22:5
+MERGED from com.android.support:support-v4:23.4.0:22:5
+MERGED from com.facebook.soloader:soloader:0.1.0:3:3
+MERGED from org.webkit:android-jsc:r174650:2:3
 MERGED from com.android.support:appcompat-v7:23.0.1:22:5
 MERGED from com.android.support:support-v4:23.4.0:22:5
 MERGED from com.facebook.react:react-native:0.41.2:13:5
