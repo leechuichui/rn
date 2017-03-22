@@ -84,11 +84,9 @@ class App extends React.Component {
           <Scene
             initial
             hideTabBar
+            hideNavBar
             key="profile"
             component={Profile}
-            leftTitle="梦梦"
-            leftButtonTextStyle={styleConstant.left_title}
-            onLeft={()=>{return false;}}
           />
           <Scene
             hideTabBar
