@@ -97,8 +97,26 @@ const styleProfile = StyleSheet.create({
   itemValue:{
     color:'#707070',
     fontSize:18
-  }
+  },
+  itemPhoto:{
+    borderBottomWidth:1,
+    borderBottomColor:'#dbdbdb',
+    flexDirection:'row',
+    paddingTop:12,
+    paddingBottom:12
+  },
+  itemPhotoWrap:{
+    flex:1,
+    flexDirection:'row',
+    flexWrap:'wrap',
+  },
+  itemPhotoImage:{
+    width:75,
+    height:75,
+    marginRight:5,
+    marginBottom:5
 
+  }
 });
 
 export default styleProfile;

@@ -25,6 +25,7 @@ import RegisterCode from '../pages/user/RegisterCode';
 import RegisterProfile from '../pages/user/RegisterProfile';
 import SetPassword from '../pages/user/SetPassword';
 import Profile from '../pages/user/Profile';
+import EditProfile from '../pages/user/EditProfile';
 
 import Find from '../pages/find/Find';
 
@@ -80,13 +81,17 @@ class App extends React.Component {
           <Scene key="registerCode" title="验证码" component={RegisterCode}></Scene>
           <Scene key="registerProfile" component={RegisterProfile} ></Scene>
           <Scene key="setPassword" title="设置密码" component={SetPassword} ></Scene>
-          <Scene hideTabBar key="chat" title="剧情再美，终究是" component={Chat}></Scene>
+          <Scene key="chat" hideTabBar title="剧情再美，终究是" component={Chat}></Scene>
+          <Scene key="profile" hideTabBar hideNavBar component={Profile}/>
           <Scene
+            key="editProfile"
             initial
             hideTabBar
-            hideNavBar
-            key="profile"
-            component={Profile}
+            title="修改资料"
+            component={EditProfile}
+            rightTitle="保存"
+            rightButtonTextStyle={styleConstant.right_title}
+            onRight={()=>{return false;}}
           />
           <Scene
             hideTabBar

@@ -76,6 +76,14 @@ class Register extends React.Component {
               <Text style={styleProfile.itemValue}>金牛座</Text>
             </View>
             <View style={styleProfile.itemLi}>
+              <Text style={styleProfile.itemLabel}>身高</Text>
+              <Text style={styleProfile.itemValue}>170</Text>
+            </View>
+            <View style={styleProfile.itemLi}>
+              <Text style={styleProfile.itemLabel}>生日</Text>
+              <Text style={styleProfile.itemValue}>1996年4月18日</Text>
+            </View>
+            <View style={styleProfile.itemLi}>
               <Text style={styleProfile.itemLabel}>职业</Text>
               <Text style={styleProfile.itemValue}>政府机构</Text>
             </View>
@@ -83,7 +91,25 @@ class Register extends React.Component {
               <Text style={styleProfile.itemLabel}>城市</Text>
               <Text style={styleProfile.itemValue}>四川省成都市</Text>
             </View>
+            <View style={styleProfile.itemLi}>
+              <Text style={styleProfile.itemLabel}>感情状态</Text>
+              <Text style={styleProfile.itemValue}>单身</Text>
+            </View>
+            <View style={styleProfile.itemLi}>
+              <Text style={styleProfile.itemLabel}>签名</Text>
+              <Text style={styleProfile.itemValue}>愿得一心人，白首不相离</Text>
+            </View>
+            <View style={styleProfile.itemPhoto}>
+              <Text style={styleProfile.itemLabel}>个人相册</Text>
+              <View style={styleProfile.itemPhotoWrap}>
+                <Image source={require('../../images/meinv.png')} style={styleProfile.itemPhotoImage}></Image>
+                <Image source={require('../../images/meinv.png')} style={styleProfile.itemPhotoImage}></Image>
+                <Image source={require('../../images/meinv.png')} style={styleProfile.itemPhotoImage}></Image>
+                <Image source={require('../../images/meinv.png')} style={styleProfile.itemPhotoImage}></Image>
+              </View>
+            </View>
           </View>
+
         </ScrollView>
       </View>
     );
