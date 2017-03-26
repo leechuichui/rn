@@ -4,6 +4,7 @@ const constant = {
   fontColor:'#696b6a',
   defaultColor:'#fe6964',
   windowWidth: Dimensions.get('window').width,
+  windowHeight: Dimensions.get('window').height,
   flexRow:{
     flexDirection: 'row',
   },

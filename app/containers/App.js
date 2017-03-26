@@ -19,6 +19,7 @@ import MainContainer from '../containers/MainContainer';
 import Feedback from '../pages/Feedback';
 import About from '../pages/About';
 
+import Home from '../pages/Home';
 import Login from '../pages/user/Login';
 import Register from '../pages/user/Register';
 import RegisterCode from '../pages/user/RegisterCode';
@@ -76,8 +77,9 @@ class App extends React.Component {
         backButtonImage={backButton}
       >
         <Scene key="root">
-          <Scene key="login" title="登录" component={Login}></Scene>
-          <Scene key="register" title="注册" component={Register}></Scene>
+          <Scene key="home" hideTabBar hideNavBar initial component={Home}></Scene>
+          <Scene key="login" title="登录" component={Login} type={ActionConst.REPLACE}></Scene>
+          <Scene key="register"  title="注册"  component={Register} type={ActionConst.REPLACE}></Scene>
           <Scene key="registerCode" title="验证码" component={RegisterCode}></Scene>
           <Scene key="registerProfile" component={RegisterProfile} ></Scene>
           <Scene key="setPassword" title="设置密码" component={SetPassword} ></Scene>
@@ -85,7 +87,6 @@ class App extends React.Component {
           <Scene key="profile" hideTabBar hideNavBar component={Profile}/>
           <Scene
             key="editProfile"
-            initial
             hideTabBar
             title="修改资料"
             component={EditProfile}

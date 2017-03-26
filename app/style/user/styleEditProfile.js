@@ -7,6 +7,7 @@ const styleEditProfile = StyleSheet.create({
     flex:1,
     justifyContent: 'flex-start',
     backgroundColor:'#eff1f0',
+    paddingBottom:15
   },
   itemTitleWrap:{
     paddingTop:12,
@@ -21,7 +22,9 @@ const styleEditProfile = StyleSheet.create({
     borderTopWidth:1,
     borderTopColor:'#dbdbdb',
     paddingLeft:20,
-    backgroundColor:'#fff'
+    backgroundColor:'#fff',
+    borderBottomWidth:1,
+    borderBottomColor:'#dbdbdb',
   },
   itemProfile:{
     height:75,
@@ -41,7 +44,9 @@ const styleEditProfile = StyleSheet.create({
     borderBottomWidth:1,
     borderBottomColor:'#dbdbdb',
     flexDirection:'row',
-    alignItems:'center'
+    alignItems:'center',
+    justifyContent:'space-between',
+    paddingRight:20,
   },
   itemContent:{
     flexDirection:'row',
@@ -49,6 +54,7 @@ const styleEditProfile = StyleSheet.create({
   },
   rightIcon:{
     color:'#c5c6ca',
+    marginLeft:10
   },
   itemLabel:{
     fontSize:18,
