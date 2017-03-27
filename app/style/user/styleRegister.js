@@ -51,9 +51,7 @@ const style_register = StyleSheet.create({
     justifyContent: 'center',
     alignItems:'flex-end'
   },
-  bottomContainer:{
-    flex: 6,
-  }
+
 });
 
 export default style_register;

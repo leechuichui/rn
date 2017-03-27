@@ -77,8 +77,8 @@ class App extends React.Component {
         backButtonImage={backButton}
       >
         <Scene key="root">
-          <Scene key="home" hideTabBar hideNavBar initial component={Home}></Scene>
-          <Scene key="login" title="登录" component={Login} type={ActionConst.REPLACE}></Scene>
+          <Scene key="home" hideTabBar hideNavBar  component={Home}></Scene>
+          <Scene key="login" hideTabBar initial title="登录" component={Login} type={ActionConst.REPLACE}></Scene>
           <Scene key="register"  title="注册"  component={Register} type={ActionConst.REPLACE}></Scene>
           <Scene key="registerCode" title="验证码" component={RegisterCode}></Scene>
           <Scene key="registerProfile" component={RegisterProfile} ></Scene>
