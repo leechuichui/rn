@@ -17,10 +17,12 @@ ADDED from AndroidManifest.xml:1:1
 		ADDED from AndroidManifest.xml:1:11
 uses-permission#android.permission.INTERNET
 ADDED from AndroidManifest.xml:6:5
+MERGED from lianlian:react-native-qq:unspecified:11:5
 	android:name
 		ADDED from AndroidManifest.xml:6:22
 uses-permission#android.permission.SYSTEM_ALERT_WINDOW
 ADDED from AndroidManifest.xml:7:5
+MERGED from com.facebook.react:react-native:0.41.2:11:5
 MERGED from com.facebook.react:react-native:0.41.2:11:5
 MERGED from com.facebook.react:react-native:0.41.2:11:5
 	android:name
@@ -28,6 +30,33 @@ MERGED from com.facebook.react:react-native:0.41.2:11:5
 uses-sdk
 ADDED from AndroidManifest.xml:9:5
 MERGED from lianlian:react-native-vector-icons:unspecified:7:5
+MERGED from com.facebook.react:react-native:0.41.2:7:5
+MERGED from com.android.support:appcompat-v7:23.0.1:20:5
+MERGED from com.android.support:support-v4:23.4.0:20:5
+MERGED from com.android.support:recyclerview-v7:23.4.0:20:5
+MERGED from com.android.support:support-v4:23.4.0:20:5
+MERGED from com.facebook.fbui.textlayoutbuilder:textlayoutbuilder:1.0.0:14:5
+MERGED from com.facebook.fresco:fresco:0.11.0:5:5
+MERGED from com.facebook.fresco:drawee:0.11.0:5:5
+MERGED from com.android.support:support-v4:23.4.0:20:5
+MERGED from com.facebook.fresco:fbcore:0.11.0:5:5
+MERGED from com.facebook.fresco:fbcore:0.11.0:5:5
+MERGED from com.facebook.fresco:imagepipeline:0.11.0:5:5
+MERGED from com.android.support:support-v4:23.4.0:20:5
+MERGED from com.facebook.fresco:fbcore:0.11.0:5:5
+MERGED from com.facebook.fresco:imagepipeline-base:0.11.0:5:5
+MERGED from com.android.support:support-v4:23.4.0:20:5
+MERGED from com.facebook.fresco:fbcore:0.11.0:5:5
+MERGED from com.facebook.fresco:imagepipeline-okhttp3:0.11.0:5:5
+MERGED from com.facebook.fresco:fbcore:0.11.0:5:5
+MERGED from com.facebook.fresco:imagepipeline:0.11.0:5:5
+MERGED from com.android.support:support-v4:23.4.0:20:5
+MERGED from com.facebook.fresco:fbcore:0.11.0:5:5
+MERGED from com.facebook.fresco:imagepipeline-base:0.11.0:5:5
+MERGED from com.android.support:support-v4:23.4.0:20:5
+MERGED from com.facebook.fresco:fbcore:0.11.0:5:5
+MERGED from com.facebook.soloader:soloader:0.1.0:2:3
+MERGED from lianlian:react-native-qq:unspecified:7:5
 MERGED from com.facebook.react:react-native:0.41.2:7:5
 MERGED from com.android.support:appcompat-v7:23.0.1:20:5
 MERGED from com.android.support:support-v4:23.4.0:20:5
@@ -103,6 +132,18 @@ MERGED from com.android.support:support-v4:23.4.0:22:5
 MERGED from com.android.support:support-v4:23.4.0:22:5
 MERGED from com.facebook.soloader:soloader:0.1.0:3:3
 MERGED from org.webkit:android-jsc:r174650:2:3
+MERGED from lianlian:react-native-qq:unspecified:14:5
+MERGED from com.facebook.react:react-native:0.41.2:13:5
+MERGED from com.android.support:appcompat-v7:23.0.1:22:5
+MERGED from com.android.support:support-v4:23.4.0:22:5
+MERGED from com.android.support:support-v4:23.4.0:22:5
+MERGED from com.android.support:support-v4:23.4.0:22:5
+MERGED from com.android.support:support-v4:23.4.0:22:5
+MERGED from com.android.support:support-v4:23.4.0:22:5
+MERGED from com.android.support:support-v4:23.4.0:22:5
+MERGED from com.android.support:support-v4:23.4.0:22:5
+MERGED from com.facebook.soloader:soloader:0.1.0:3:3
+MERGED from org.webkit:android-jsc:r174650:2:3
 MERGED from com.android.support:appcompat-v7:23.0.1:22:5
 MERGED from com.android.support:support-v4:23.4.0:22:5
 MERGED from com.facebook.react:react-native:0.41.2:13:5
@@ -154,3 +195,47 @@ android:uses-permission#android.permission.READ_PHONE_STATE
 IMPLIED from AndroidManifest.xml:1:1 reason: org.webkit.android_jsc has a targetSdkVersion < 4
 android:uses-permission#android.permission.READ_EXTERNAL_STORAGE
 IMPLIED from AndroidManifest.xml:1:1 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from lianlian:react-native-qq:unspecified:12:5
+	android:name
+		ADDED from lianlian:react-native-qq:unspecified:12:22
+meta-data#QQ_APPID
+ADDED from lianlian:react-native-qq:unspecified:15:9
+	android:value
+		ADDED from lianlian:react-native-qq:unspecified:17:13
+	android:name
+		ADDED from lianlian:react-native-qq:unspecified:16:13
+activity#com.tencent.tauth.AuthActivity
+ADDED from lianlian:react-native-qq:unspecified:19:9
+	android:launchMode
+		ADDED from lianlian:react-native-qq:unspecified:21:13
+	android:noHistory
+		ADDED from lianlian:react-native-qq:unspecified:22:13
+	android:name
+		ADDED from lianlian:react-native-qq:unspecified:20:13
+intent-filter#android.intent.action.VIEW+android.intent.category.BROWSABLE+android.intent.category.DEFAULT
+ADDED from lianlian:react-native-qq:unspecified:23:13
+action#android.intent.action.VIEW
+ADDED from lianlian:react-native-qq:unspecified:24:17
+	android:name
+		ADDED from lianlian:react-native-qq:unspecified:24:25
+category#android.intent.category.DEFAULT
+ADDED from lianlian:react-native-qq:unspecified:26:17
+	android:name
+		ADDED from lianlian:react-native-qq:unspecified:26:27
+category#android.intent.category.BROWSABLE
+ADDED from lianlian:react-native-qq:unspecified:27:17
+	android:name
+		ADDED from lianlian:react-native-qq:unspecified:27:27
+data
+ADDED from lianlian:react-native-qq:unspecified:29:17
+	android:scheme
+		ADDED from lianlian:react-native-qq:unspecified:29:23
+activity#com.tencent.connect.common.AssistActivity
+ADDED from lianlian:react-native-qq:unspecified:32:9
+	android:configChanges
+		ADDED from lianlian:react-native-qq:unspecified:34:13
+	android:theme
+		ADDED from lianlian:react-native-qq:unspecified:35:13
+	android:name
+		ADDED from lianlian:react-native-qq:unspecified:33:13

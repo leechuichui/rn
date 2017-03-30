@@ -13,6 +13,7 @@
     "react-native-code-push": "^1.16.1-beta",
     "react-native-device-info": "^0.9.9",
     "react-native-exceptions-manager": "^0.1.8",
+    "react-native-qq": "^2.0.5",
     "react-native-router-flux": "^3.37.0",
     "react-native-scrollable-tab-view": "^0.7.2",
     "react-native-simple-store": "^1.1.0",

@@ -1,6 +1,8 @@
 package com.lianlian;
 
+import android.content.Intent;
 import com.facebook.react.ReactActivity;
+import com.facebook.react.ReactInstanceManager;
 
 public class MainActivity extends ReactActivity {
 
@@ -12,4 +14,5 @@ public class MainActivity extends ReactActivity {
     protected String getMainComponentName() {
         return "lianlian";
     }
+
 }

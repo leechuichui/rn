@@ -11,6 +11,7 @@ import {
   Text,
   TouchableOpacity
 } from 'react-native';
+import * as QQAPI from 'react-native-qq';
 
 const propTypes = {
   onPress: PropTypes.func,
@@ -25,7 +26,7 @@ const propTypes = {
  * QQ登录
  */
 function qqLogin() {
-  alert('1');
+  QQAPI.login();
 }
 
 const ThirdLogin = () => (
