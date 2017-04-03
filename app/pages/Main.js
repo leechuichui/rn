@@ -37,7 +37,7 @@ import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-vi
 import store from 'react-native-simple-store';
 import LoadingView from '../components/LoadingView';
 import { toastShort } from '../utils/ToastUtil';
-import { formatStringWithHtml } from '../utils/FormatUtil';
+import { formatStringWithHtml } from '../utils/Common';
 
 require('moment/locale/zh-cn');
 

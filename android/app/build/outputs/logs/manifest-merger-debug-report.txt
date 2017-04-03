@@ -29,7 +29,7 @@ MERGED from com.facebook.react:react-native:0.41.2:11:5
 		ADDED from AndroidManifest.xml:7:22
 uses-sdk
 ADDED from AndroidManifest.xml:9:5
-MERGED from lianlian:react-native-vector-icons:unspecified:7:5
+MERGED from lianlian:react-native-qq:unspecified:7:5
 MERGED from com.facebook.react:react-native:0.41.2:7:5
 MERGED from com.android.support:appcompat-v7:23.0.1:20:5
 MERGED from com.android.support:support-v4:23.4.0:20:5
@@ -56,7 +56,7 @@ MERGED from com.facebook.fresco:imagepipeline-base:0.11.0:5:5
 MERGED from com.android.support:support-v4:23.4.0:20:5
 MERGED from com.facebook.fresco:fbcore:0.11.0:5:5
 MERGED from com.facebook.soloader:soloader:0.1.0:2:3
-MERGED from lianlian:react-native-qq:unspecified:7:5
+MERGED from lianlian:react-native-vector-icons:unspecified:7:5
 MERGED from com.facebook.react:react-native:0.41.2:7:5
 MERGED from com.android.support:appcompat-v7:23.0.1:20:5
 MERGED from com.android.support:support-v4:23.4.0:20:5
@@ -121,6 +121,7 @@ MERGED from com.facebook.soloader:soloader:0.1.0:2:3
 		INJECTED from AndroidManifest.xml:0:0
 application
 ADDED from AndroidManifest.xml:13:5
+MERGED from lianlian:react-native-qq:unspecified:14:5
 MERGED from com.facebook.react:react-native:0.41.2:13:5
 MERGED from com.android.support:appcompat-v7:23.0.1:22:5
 MERGED from com.android.support:support-v4:23.4.0:22:5
@@ -132,7 +133,6 @@ MERGED from com.android.support:support-v4:23.4.0:22:5
 MERGED from com.android.support:support-v4:23.4.0:22:5
 MERGED from com.facebook.soloader:soloader:0.1.0:3:3
 MERGED from org.webkit:android-jsc:r174650:2:3
-MERGED from lianlian:react-native-qq:unspecified:14:5
 MERGED from com.facebook.react:react-native:0.41.2:13:5
 MERGED from com.android.support:appcompat-v7:23.0.1:22:5
 MERGED from com.android.support:support-v4:23.4.0:22:5
@@ -189,12 +189,6 @@ activity#com.facebook.react.devsupport.DevSettingsActivity
 ADDED from AndroidManifest.xml:28:7
 	android:name
 		ADDED from AndroidManifest.xml:28:17
-android:uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-IMPLIED from AndroidManifest.xml:1:1 reason: org.webkit.android_jsc has a targetSdkVersion < 4
-android:uses-permission#android.permission.READ_PHONE_STATE
-IMPLIED from AndroidManifest.xml:1:1 reason: org.webkit.android_jsc has a targetSdkVersion < 4
-android:uses-permission#android.permission.READ_EXTERNAL_STORAGE
-IMPLIED from AndroidManifest.xml:1:1 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from lianlian:react-native-qq:unspecified:12:5
 	android:name
@@ -239,3 +233,9 @@ ADDED from lianlian:react-native-qq:unspecified:32:9
 		ADDED from lianlian:react-native-qq:unspecified:35:13
 	android:name
 		ADDED from lianlian:react-native-qq:unspecified:33:13
+android:uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+IMPLIED from AndroidManifest.xml:1:1 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+android:uses-permission#android.permission.READ_PHONE_STATE
+IMPLIED from AndroidManifest.xml:1:1 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+android:uses-permission#android.permission.READ_EXTERNAL_STORAGE
+IMPLIED from AndroidManifest.xml:1:1 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE

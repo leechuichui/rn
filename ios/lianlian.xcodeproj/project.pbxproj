@@ -46,6 +46,7 @@
 		C7B6C5C46E9D45289E7C4801 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB4973AD337B4521BE9D3F61 /* SimpleLineIcons.ttf */; };
 		F197726B808B456983A00E0A /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23077ECFC4A84C8CA66605B9 /* MaterialCommunityIcons.ttf */; };
 		F71D1976D0ED4A8497247C30 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D36E032FFD0244918736455E /* MaterialIcons.ttf */; };
+		04DD94D7BF2A48B69698B512 /* libRCTQQAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D040E370ACFD4B5C8F2497BE /* libRCTQQAPI.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -284,6 +285,8 @@
 		D36E032FFD0244918736455E /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		E20D99AC650E429C9D2E72AC /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		ED2458FA15954C1A8F90A1B6 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		A18A091358934668BF44AD02 /* RCTQQAPI.xcodeproj */ = {isa = PBXFileReference; name = "RCTQQAPI.xcodeproj"; path = "../node_modules/react-native-qq/ios/RCTQQAPI.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		D040E370ACFD4B5C8F2497BE /* libRCTQQAPI.a */ = {isa = PBXFileReference; name = "libRCTQQAPI.a"; path = "libRCTQQAPI.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,6 +314,7 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				5B4105A7252844E2A8BD8555 /* libRNVectorIcons.a in Frameworks */,
+				04DD94D7BF2A48B69698B512 /* libRCTQQAPI.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,6 +499,7 @@
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				9A4FD4CD49E748EE869EA68D /* RNVectorIcons.xcodeproj */,
+				A18A091358934668BF44AD02 /* RCTQQAPI.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1047,6 +1052,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1067,6 +1073,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1130,6 +1137,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1160,6 +1168,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1189,6 +1198,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.lianlian-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1213,6 +1223,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.lianlian-tvOSTests";

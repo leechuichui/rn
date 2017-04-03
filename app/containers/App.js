@@ -3,13 +3,14 @@ import React from 'react';
 import {
   StyleSheet,
   Navigator,
-  StatusBar
+  StatusBar,
+  Alert,
 } from 'react-native';
 
 import {
   Router,
   Scene,
-  Alert,
+  Actions,
   ActionConst
 } from 'react-native-router-flux';
 import { connect } from 'react-redux';
@@ -60,6 +61,17 @@ const getSceneStyle = (props, computedProps) => {
 };
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state={};
+    let instance=this;
+    React.getUserInfo((data)=>{
+      if(data.Token){
+        Actions.tabbar();
+        this.setState({token:data.Token});
+      }
+    })
+  }
   componentWillMount() {
     StatusBar.setTranslucent(true);
     StatusBar.setBackgroundColor('rgba(254, 105, 100, 1)', true);
@@ -77,9 +89,9 @@ class App extends React.Component {
         backButtonImage={backButton}
       >
         <Scene key="root">
-          <Scene key="home" hideTabBar hideNavBar  component={Home}></Scene>
-          <Scene key="login" hideTabBar initial title="登录" component={Login} type={ActionConst.REPLACE}></Scene>
-          <Scene key="register"  title="注册"  component={Register} type={ActionConst.REPLACE}></Scene>
+          <Scene key="home" hideTabBar hideNavBar component={Home}></Scene>
+          <Scene key="login" hideTabBar title="登录" component={Login} type={ActionConst.REPLACE}></Scene>
+          <Scene key="register" title="注册"  component={Register} type={ActionConst.REPLACE}></Scene>
           <Scene key="registerCode" title="验证码" component={RegisterCode}></Scene>
           <Scene key="registerProfile" component={RegisterProfile} ></Scene>
           <Scene key="setPassword" title="设置密码" component={SetPassword} ></Scene>
@@ -102,7 +114,7 @@ class App extends React.Component {
             rightButtonTextStyle={styleConstant.right_title}
             onRight={()=>{return false;}}
           />
-          <Scene key="tabbar" tabs pressOpacity={0.8} type={ActionConst.REPLACE} >
+          <Scene key="tabbar" initial={this.state.token} tabs pressOpacity={0.8} type={ActionConst.REPLACE} >
             <Scene
               key="main"
               component={Find}
@@ -113,7 +125,7 @@ class App extends React.Component {
               rightTitle="筛选"
               rightButtonTextStyle={styleConstant.right_title}
               onRight={()=>{return false;}}
-              titleOpacity={'0'}
+              titleOpacity={0}
               icon={TabIcon}
               iconName="md-eye"
             />
@@ -124,7 +136,7 @@ class App extends React.Component {
               leftTitle="消息"
               leftButtonTextStyle={styleConstant.left_title}
               onLeft={()=>{return false;}}
-              titleOpacity={'0'}
+              titleOpacity={0}
               icon={TabIcon}
               iconName="md-mail"
             />

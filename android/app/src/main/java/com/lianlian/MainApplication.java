@@ -14,7 +14,7 @@ import com.facebook.soloader.SoLoader;
 import java.util.Arrays;
 import java.util.List;
 
-import cn.reactnative.modules.qq.QQPackage;  // 在public class MainApplication之前import
+import cn.reactnative.modules.qq.QQPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -28,6 +28,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new QQPackage(),
             new VectorIconsPackage()
       );
     }
