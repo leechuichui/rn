@@ -114,9 +114,10 @@ class App extends React.Component {
             rightButtonTextStyle={styleConstant.right_title}
             onRight={()=>{return false;}}
           />
-          <Scene key="tabbar" initial={this.state.token} tabs pressOpacity={0.8} type={ActionConst.REPLACE} >
+          {/*<Scene key="tabbar" initial={this.state.token} tabs pressOpacity={0.8} type={ActionConst.REPLACE} >*/}
+          <Scene key="tabbar" initial tabs pressOpacity={0.8} type={ActionConst.REPLACE} >
             <Scene
-              key="main"
+              key="find"
               component={Find}
               title="发现"
               leftTitle="发现"

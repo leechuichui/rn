@@ -19,6 +19,9 @@ import { Actions } from 'react-native-router-flux';
 import Button from '../../components/Button';
 var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 class Register extends React.Component {
+  static defaultProps = {
+    watchId: null,
+  }
   constructor(props){
     super(props);
 
@@ -28,6 +31,18 @@ class Register extends React.Component {
   }
 
   componentDidMount() {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        var initialPosition = JSON.stringify(position);
+        console.log(initialPosition);
+      },
+      (error) => alert(error.message),
+      {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
+    );
+    this.watchID = navigator.geolocation.watchPosition((position) => {
+      var lastPosition = JSON.stringify(position);
+      this.setState({lastPosition});
+    });
     this.getData();
     //Actions.refresh({ renderRightButton: this.renderRightButton.bind(this) });
   }
@@ -39,6 +54,9 @@ class Register extends React.Component {
         dataSource: ds.cloneWithRows(result.DataObj)
       });
     });
+  }
+  componentWillUnmount() {
+    navigator.geolocation.clearWatch(this.watchID);
   }
 
   genRows(){
