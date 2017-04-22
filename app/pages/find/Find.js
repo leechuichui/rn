@@ -17,18 +17,28 @@ import styleFind from '../../style/find/styleFind';
 
 import { Actions } from 'react-native-router-flux';
 import Button from '../../components/Button';
-
+var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 class Register extends React.Component {
   constructor(props){
     super(props);
-    var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+
     this.state = {
-      dataSource: ds.cloneWithRows(this.genRows()),
+      dataSource:ds.cloneWithRows([])
     };
   }
 
   componentDidMount() {
+    this.getData();
     //Actions.refresh({ renderRightButton: this.renderRightButton.bind(this) });
+  }
+
+  getData(page){
+    React.postData('User/NearByUser',{Page:1,PageSize:10},(result)=>{
+      console.log(result);
+      this.setState({
+        dataSource: ds.cloneWithRows(result.DataObj)
+      });
+    });
   }
 
   genRows(){
@@ -43,23 +53,41 @@ class Register extends React.Component {
     alert("hellow"+rowID);
   }
 
+  /**
+   * 渲染性别
+   */
+  renderSex(rowData) {
+    switch (rowData.Sex){
+      case React.constant.sexEnum.boy:
+        return (
+          <View style={[styleFind.sexWrap,styleFind.sexWrapBoy]}>
+            <Icon name="venus" color="#fff" size={12}> {rowData.Age>0?rowData.Age:''}</Icon>
+          </View>
+        )
+      case React.constant.sexEnum.girl:
+        return (
+          <View style={styleFind.sexWrap}>
+            <Icon name="mars" color="#fff" size={12}> {rowData.Age>0?rowData.Age:''}</Icon>
+          </View>
+        )
+    }
+    return <Text>ds</Text>
+  }
   renderRow(rowData, sectionID, rowID){
     return (
       <TouchableOpacity onPress={()=>this.pressRow(rowID)}>
         <View style={styleFind.itemWrap}>
-          <Image source={require('../../images/mm.jpg')} style={styleFind.profile}/>
+          <Image source={{uri:rowData.Profile}} style={styleFind.profile}/>
           <View style={styleFind.itemInfo}>
             <View style={styleFind.baseInfo}>
-              <Text style={styleFind.profileName}>丫丫</Text>
-              <Text style={styleFind.distance}>14.71km</Text>
+              <Text style={styleFind.profileName}>{rowData.Name}</Text>
+              <Text style={styleFind.distance}>{rowData.Distance}</Text>
             </View>
             <View style={styleConstant.flexRow}>
-              <View style={styleFind.sexWrap}>
-                <Icon name="mars" color="#fff" size={15}/>
-              </View>
-              <Text style={styleFind.constellation}>处女座</Text>
+              {this.renderSex(rowData)}
+              <Text style={styleFind.constellation}>{rowData.Constellation}</Text>
             </View>
-            <Text style={styleFind.sign}>一次就好，我陪你去天荒地老</Text>
+            <Text style={styleFind.sign}>{rowData.Sign}</Text>
             <View style={styleFind.labelWrap}>
               <Text style={styleFind.labelText}>叛逆</Text><Text style={styleFind.labelText}>有女友永远</Text>
             </View>
@@ -74,13 +102,13 @@ class Register extends React.Component {
   }
 
   renderRightButton() {
-    
+
   }
 
   render() {
     return (
       <View style={styleFind.container}>
-        <ListView dataSource={this.state.dataSource} renderRow={this.renderRow.bind(this)}/>
+        <ListView dataSource={this.state.dataSource} renderRow={this.renderRow.bind(this)} enableEmptySections={true}/>
       </View>
     );
   }

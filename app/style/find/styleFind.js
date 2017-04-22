@@ -45,7 +45,10 @@ const style_register = StyleSheet.create({
     backgroundColor:'#fe97aa',
     alignItems:'center',
     justifyContent: 'center',
-    borderRadius:8,
+    borderRadius:5,
+  },
+  sexWrapBoy:{
+    backgroundColor:'#01a9f2'
   },
   constellation:{
     color:'#b9cbd7',
