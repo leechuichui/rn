@@ -73,7 +73,47 @@ const style_register = StyleSheet.create({
     backgroundColor:'#8bd5a4',
     marginRight:10,
     marginTop:6
+  },
+
+  //筛选Modal
+  modal:{
+    flex:1,
+    alignItems:'center',
+    justifyContent:'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.4)'
+  },
+  modalContent:{
+    width:320,
+    height:220,
+    opacity:1,
+    backgroundColor:'#fff',
+    borderRadius:3,
+    padding:15
+  },
+  modalTitle:{
+    fontSize:16,
+    color:'#666',
+    height:30,
+  },
+  modalBar:{
+    flexDirection: 'row',
+    borderColor:'#009687',
+    color:'#009687',
+    borderWidth:1,
+    borderRadius:3,
+    borderRightWidth:0,
+    marginBottom:10
+
+  },
+  modalBarText:{
+    flex:1,
+    height:35,
+    paddingTop:9,
+    textAlign:'center',
+    borderRightColor:'#009687',
+    borderRightWidth:1,
   }
+
 });
 
 export default style_register;

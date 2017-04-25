@@ -2,6 +2,7 @@ import React from 'react';
 import {
   StyleSheet,
   ListView,
+  Modal,
   TouchableOpacity,
   Image,
   Text,
@@ -18,7 +19,6 @@ import styleConstant from '../../style/styleConstant';
 import styleFind from '../../style/find/styleFind';
 
 import Button from '../../components/Button';
-import SmallLoading from '../../components/SmallLoading';
 
 var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 class Find extends React.Component {
@@ -179,7 +179,28 @@ class Find extends React.Component {
               progressBackgroundColor="#fff"/>
           }
         />
-        {/*<SmallLoading isShow={this.state.showLoading}></SmallLoading>*/}
+        <Modal
+          animationType={"fade"}
+          transparent={true}
+          visible={true}
+          onRequestClose={() => {alert("Modal has been closed.")}}
+        >
+          <View style={styleFind.modal}>
+            <View style={styleFind.modalContent}>
+              <Text style={styleFind.modalTitle}>想看的用户</Text>
+              <View style={styleFind.modalBar}>
+                <Text style={styleFind.modalBarText}>全部</Text>
+                <Text style={styleFind.modalBarText}>男</Text>
+                <Text style={styleFind.modalBarText}>女</Text>
+              </View>
+              <Text style={styleFind.modalTitle}>地区</Text>
+              <View style={styleFind.modalBar}>
+                <Text style={styleFind.modalBarText}>全部</Text>
+                <Text style={styleFind.modalBarText}>同城</Text>
+              </View>
+            </View>
+          </View>
+        </Modal>
       </View>
     );
   }
