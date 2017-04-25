@@ -33,6 +33,28 @@ React.getDataUrl=function(url,param,onSuccess,onError=React.onError){
       .catch((error) => {
         onError(error);
       });
+  }).catch((error) => {
+    switch (error.name) {
+      case 'NotFoundError':
+        fetch(React.formatParam(url,param),{
+          method: 'get',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          }
+        }).then((response) => response.json())
+          .then((responseJson) => {
+            onSuccess(responseJson);
+          })
+          .catch((error) => {
+            onError(error);
+          });
+        break;
+      case 'ExpiredError':
+        // TODO
+        break;
+    }
+    onError(error);
   });
 }
 
@@ -43,13 +65,11 @@ React.getData=function (action,param,onSuccess,onError) {
 
 React.postData=function(action,param,onSuccess,onError=React.onError){
   let url=React.constant.domain+"/"+action;
-  console.log(url);
   let token;
   storage.load({
     key:'userInfo'
   })
   .then((data)=>{
-    console.log(data);
     let token=data?data.Token:null;
     fetch(url,{
       method: 'post',
@@ -58,7 +78,6 @@ React.postData=function(action,param,onSuccess,onError=React.onError){
         'Content-Type': 'application/json',
         'Authorization':token
       },
-      //body:'Page=1&pageSize=10'
       body: JSON.stringify(param)
     }).then((response) => response.json())
       .then((responseJson) => {

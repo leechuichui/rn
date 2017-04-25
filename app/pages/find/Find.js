@@ -9,16 +9,19 @@ import {
   Linking,
   View,
   Alert,
+  RefreshControl
 } from 'react-native';
 
+import { Actions } from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styleConstant from '../../style/styleConstant';  
 import styleFind from '../../style/find/styleFind';
 
-import { Actions } from 'react-native-router-flux';
 import Button from '../../components/Button';
+import SmallLoading from '../../components/SmallLoading';
+
 var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-class Register extends React.Component {
+class Find extends React.Component {
   static defaultProps = {
     watchId: null,
   }
@@ -26,37 +29,72 @@ class Register extends React.Component {
     super(props);
 
     this.state = {
-      dataSource:ds.cloneWithRows([])
+      dataSource:ds.cloneWithRows([]),
+      isFresh:false,
+      resultData:[],
+      page:1
     };
   }
 
   componentDidMount() {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        var initialPosition = JSON.stringify(position);
-        console.log(initialPosition);
-      },
-      (error) => alert(error.message),
-      {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
-    );
-    this.watchID = navigator.geolocation.watchPosition((position) => {
-      var lastPosition = JSON.stringify(position);
-      this.setState({lastPosition});
-    });
+    // navigator.geolocation.getCurrentPosition(
+    //   (position) => {
+    //     var initialPosition = JSON.stringify(position);
+    //     console.log(initialPosition);
+    //   },
+    //   (error) => alert(error.message),
+    //   {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
+    // );
+    //
+    // this.watchID = navigator.geolocation.watchPosition((position) => {
+    //   var lastPosition = JSON.stringify(position);
+    //   this.setState({lastPosition});
+    // });
     this.getData();
     //Actions.refresh({ renderRightButton: this.renderRightButton.bind(this) });
   }
 
-  getData(page){
-    React.postData('User/NearByUser',{Page:1,PageSize:10},(result)=>{
-      console.log(result);
+  getData(){
+    React.postData('User/NearByUser',{Page:this.state.page,PageSize:10},(result)=>{
+      var resultArr=[];
+      if(this.state.page>1){
+        resultArr=this.state.resultData.concat(result.DataObj);
+        console.log(resultArr);
+      }
+      else{
+        resultArr=result.DataObj;
+      }
       this.setState({
-        dataSource: ds.cloneWithRows(result.DataObj)
+        dataSource: ds.cloneWithRows(resultArr),
+        isFresh:false,
+        resultData:resultArr
       });
     });
   }
+
+  /**
+   * 下拉刷新
+   */
+  onFresh(){
+    this.setState({
+      isFresh:true,
+      page:1
+    });
+    this.getData();
+  }
+
+  /**
+   * 加载更多
+   */
+  loadMore(){
+    this.setState({
+      page:++this.state.page
+    });
+    this.getData();
+  }
+
   componentWillUnmount() {
-    navigator.geolocation.clearWatch(this.watchID);
+    //navigator.geolocation.clearWatch(this.watchID);
   }
 
   genRows(){
@@ -126,10 +164,25 @@ class Register extends React.Component {
   render() {
     return (
       <View style={styleFind.container}>
-        <ListView dataSource={this.state.dataSource} renderRow={this.renderRow.bind(this)} enableEmptySections={true}/>
+        <ListView
+          dataSource={this.state.dataSource}
+          renderRow={this.renderRow.bind(this)}
+          enableEmptySections={true}
+          onEndReachedThreshold={10}
+          onEndReached={ this.loadMore.bind(this) }
+          refreshControl={
+            <RefreshControl
+              refreshing={ this.state.isFresh }
+              onRefresh={ this.onFresh.bind(this) }
+              tintColor="#ff0000"
+              colors={['#ff0000', '#00ff00', '#0000ff']}
+              progressBackgroundColor="#fff"/>
+          }
+        />
+        {/*<SmallLoading isShow={this.state.showLoading}></SmallLoading>*/}
       </View>
     );
   }
 }
 
-export default Register;
+export default Find;
