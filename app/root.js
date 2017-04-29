@@ -21,16 +21,16 @@ var storage = new Storage({
   storageBackend: AsyncStorage,
 
   // 数据过期时间，默认一整天（1000 * 3600 * 24 毫秒），设为null则永不过期
-  //defaultExpires: 1000 * 3600 * 240,
+  defaultExpires: null,
 
   // 读写时在内存中缓存数据。默认启用。
   enableCache: true,
 
   //如果storage中没有相应数据，或数据已过期，
   //则会调用相应的sync方法，无缝返回最新数据。
-  sync:function () {
-    return '';
-  }
+  // sync:function () {
+  //   return null;
+  // }
 })
 
 global.storage = storage;

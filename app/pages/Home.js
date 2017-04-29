@@ -28,7 +28,7 @@ class Register extends React.Component {
   }
 
   onPress() {
-    Alert.alert("1");
+    //Alert.alert("1");
   }
 
 

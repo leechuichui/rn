@@ -13,6 +13,28 @@ React.formatParam=function (url,param) {
   return url.substring(0,url.length-1);
 }
 
+/**
+ * 根据获取Storage中的数据
+ */
+React.getStorageByKey=function (key,onSuccess,onError=React.onError) {
+  storage.load({
+    key:key
+  })
+  .then((data)=> {
+    onSuccess(data);
+  })
+  .catch((error)=>{
+    switch (error.name) {
+      case 'NotFoundError':
+        onSuccess(null);
+        break;
+      case 'ExpiredError':
+        console.log('ExpiredError');
+        break;
+    }
+  });
+}
+
 React.getDataUrl=function(url,param,onSuccess,onError=React.onError){
   storage.load({
     key:'userInfo'
@@ -58,13 +80,13 @@ React.getDataUrl=function(url,param,onSuccess,onError=React.onError){
   });
 }
 
-React.getData=function (action,param,onSuccess,onError) {
-  let url=React.constant.domain+"/"+action;
+React.getData=function (action,param,onSuccess,onError,version="V1") {
+  let url=React.constant.domain+"/"+version+"/"+action;
   this.getDataUrl(url,param,onSuccess,onError);
 }
 
-React.postData=function(action,param,onSuccess,onError=React.onError){
-  let url=React.constant.domain+"/"+action;
+React.postData=function(action,param,onSuccess,onError=React.onError,version="V1"){
+  let url=React.constant.domain+"/"+version+"/"+action;
   let token;
   storage.load({
     key:'userInfo'

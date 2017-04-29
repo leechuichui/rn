@@ -54,7 +54,6 @@ const constant = {
   },
   rightBtn:{
     flex:1,
-
   }
 }
 

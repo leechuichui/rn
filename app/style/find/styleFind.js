@@ -98,20 +98,41 @@ const style_register = StyleSheet.create({
   modalBar:{
     flexDirection: 'row',
     borderColor:'#009687',
-    color:'#009687',
     borderWidth:1,
     borderRadius:3,
     borderRightWidth:0,
     marginBottom:10
-
   },
-  modalBarText:{
+  modalButtonContainer:{
     flex:1,
     height:35,
     paddingTop:9,
-    textAlign:'center',
     borderRightColor:'#009687',
     borderRightWidth:1,
+  },
+  button:{
+    fontSize:16,
+    color:'#009687',
+    textAlign:'center'
+  },
+  selectedBtnWrap:{
+    backgroundColor:'#009687',
+  },
+  selectedButton:{
+    color:'#fff',
+  },
+  selectBar:{
+    flexDirection:'row',
+    justifyContent:'flex-end',
+    marginTop:10
+  },
+  modalBarButtonContainer:{
+    width:60,
+  },
+  modalBarButton:{
+    fontSize:16,
+    color:'#476a74',
+    textAlign:'center'
   }
 
 });

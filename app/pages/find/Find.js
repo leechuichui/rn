@@ -10,7 +10,7 @@ import {
   Linking,
   View,
   Alert,
-  RefreshControl
+  RefreshControl,
 } from 'react-native';
 
 import { Actions } from 'react-native-router-flux';
@@ -32,11 +32,15 @@ class Find extends React.Component {
       dataSource:ds.cloneWithRows([]),
       isFresh:false,
       resultData:[],
-      page:1
+      page:1,
+      isSelectModalShow:false,
+      selectType:null,
+      selectArea:null
     };
   }
 
   componentDidMount() {
+    Actions.refresh({ onRight: this.onFilter.bind(this) });
     // navigator.geolocation.getCurrentPosition(
     //   (position) => {
     //     var initialPosition = JSON.stringify(position);
@@ -50,16 +54,26 @@ class Find extends React.Component {
     //   var lastPosition = JSON.stringify(position);
     //   this.setState({lastPosition});
     // });
-    this.getData();
-    //Actions.refresh({ renderRightButton: this.renderRightButton.bind(this) });
+    React.getStorageByKey('userSelect',(data)=>{
+      console.log(data);
+      this.setState({
+        selectType:data.selectType,
+        selectArea:data.selectType
+      });
+      this.getData();
+    });
   }
 
   getData(){
-    React.postData('User/NearByUser',{Page:this.state.page,PageSize:10},(result)=>{
+    React.postData('User/NearByUser',{
+      Page:this.state.page,
+      PageSize:10,
+      SelectType:this.state.selectType,
+      SelectArea:this.state.selectArea
+    },(result)=>{
       var resultArr=[];
       if(this.state.page>1){
         resultArr=this.state.resultData.concat(result.DataObj);
-        console.log(resultArr);
       }
       else{
         resultArr=result.DataObj;
@@ -87,6 +101,9 @@ class Find extends React.Component {
    * 加载更多
    */
   loadMore(){
+    if(this.state.resultData.length<10){
+      return;
+    }
     this.setState({
       page:++this.state.page
     });
@@ -154,7 +171,53 @@ class Find extends React.Component {
   }
 
   onPress() {
-    Alert.alert("1");
+    Alert.alert("2");
+  }
+
+  /**
+   * 筛选点击事件
+   */
+  onFilter(){
+    this.setState({
+      isSelectModalShow:true
+    })
+  }
+
+  /**
+   * 选择用户类型
+   */
+  setSelectType(val){
+    this.setState({
+      selectType:val
+    });
+  }
+
+  /**
+   * 选择地区
+   */
+  setSelectArea(val){
+    this.setState({
+      selectArea:val
+    });
+
+  }
+
+  /**
+   * 筛选确定
+   */
+  setSelectConfirm(){
+    storage.save({
+      key:'userSelect',
+      rawData:{
+        selectType:this.state.selectType,
+        selectArea:this.state.selectArea
+      }
+    });
+    this.setState({
+      isSelectModalShow:false,
+      isFresh:true
+    });
+    this.getData();
   }
 
   renderRightButton() {
@@ -182,21 +245,60 @@ class Find extends React.Component {
         <Modal
           animationType={"fade"}
           transparent={true}
-          visible={true}
+          visible={this.state.isSelectModalShow}
           onRequestClose={() => {alert("Modal has been closed.")}}
         >
           <View style={styleFind.modal}>
             <View style={styleFind.modalContent}>
               <Text style={styleFind.modalTitle}>想看的用户</Text>
               <View style={styleFind.modalBar}>
-                <Text style={styleFind.modalBarText}>全部</Text>
-                <Text style={styleFind.modalBarText}>男</Text>
-                <Text style={styleFind.modalBarText}>女</Text>
+                <Button
+                  containerStyle={[styleFind.modalButtonContainer,this.state.selectType==null?styleFind.selectedBtnWrap:null]}
+                  style={[styleFind.button,this.state.selectType==null?styleFind.selectedButton:null]}
+                  text="全部"
+                  onPress={this.setSelectType.bind(this,null)}
+                />
+                <Button
+                  containerStyle={[styleFind.modalButtonContainer,this.state.selectType==1?styleFind.selectedBtnWrap:null]}
+                  style={[styleFind.button,this.state.selectType==1?styleFind.selectedButton:null]}
+                  text="男"
+                  onPress={this.setSelectType.bind(this,1)}
+                />
+                <Button
+                  containerStyle={[styleFind.modalButtonContainer,this.state.selectType==2?styleFind.selectedBtnWrap:null]}
+                  style={[styleFind.button,this.state.selectType==2?styleFind.selectedButton:null]}
+                  text="女"
+                  onPress={this.setSelectType.bind(this,2)}
+                />
               </View>
               <Text style={styleFind.modalTitle}>地区</Text>
               <View style={styleFind.modalBar}>
-                <Text style={styleFind.modalBarText}>全部</Text>
-                <Text style={styleFind.modalBarText}>同城</Text>
+                <Button
+                  containerStyle={[styleFind.modalButtonContainer,this.state.selectArea==null?styleFind.selectedBtnWrap:null]}
+                  style={[styleFind.button,this.state.selectArea==null?styleFind.selectedButton:null]}
+                  text="全部"
+                  onPress={this.setSelectArea.bind(this,null)}
+                />
+                <Button
+                  containerStyle={[styleFind.modalButtonContainer,this.state.selectArea==1?styleFind.selectedBtnWrap:null]}
+                  style={[styleFind.button,this.state.selectArea==1?styleFind.selectedButton:null]}
+                  text="同城"
+                  onPress={this.setSelectArea.bind(this,1)}
+                />
+              </View>
+              <View style={styleFind.selectBar}>
+                <Button
+                  containerStyle={styleFind.modalBarButtonContainer}
+                  style={[styleFind.modalBarButton]}
+                  text="取消"
+                  onPress={()=>{this.setState({isSelectModalShow:false})}}
+                />
+                <Button
+                  containerStyle={styleFind.modalBarButtonContainer}
+                  style={[styleFind.modalBarButton]}
+                  text="确定"
+                  onPress={this.setSelectConfirm.bind(this,1)}
+                />
               </View>
             </View>
           </View>
