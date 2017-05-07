@@ -1,4 +1,5 @@
 import React from 'react';
+import ImConfig from '../lib/WebIMConfig';
 
 /**
  * 格式化get URL
@@ -144,6 +145,29 @@ React.getGenderVal=function (gender) {
     default:
       return 2;
   }
+}
+
+/**
+ * IM post接口
+ * @param 接口名
+ */
+React.ImPost=function (action,param,onSuccess,onError=React.onError) {
+  let appKeyPair = ImConfig.appkey.split('#');
+  let url=`${ImConfig.apiURL}/${appKeyPair[0]}/${appKeyPair[1]}`;
+  fetch(url,{
+    method: 'post',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(param)
+  }).then((response) => response.json())
+  .then((responseJson) => {
+    onSuccess(responseJson);
+  })
+  .catch((error) => {
+    onError(error);
+  });
 }
 
 /* -- 业务 End -- */

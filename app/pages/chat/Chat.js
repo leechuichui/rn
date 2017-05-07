@@ -18,13 +18,14 @@ import styleChat from '../../style/chat/styleChat';
 import { Actions } from 'react-native-router-flux';
 import Button from '../../components/Button';
 
-class Register extends React.Component {
+class Chat extends React.Component {
   constructor(props){
     super(props);
     var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
       dataSource: ds.cloneWithRows(this.genRows()),
     };
+
   }
 
   componentDidMount() {
@@ -147,4 +148,4 @@ class Register extends React.Component {
   }
 }
 
-export default Register;
+export default Chat;

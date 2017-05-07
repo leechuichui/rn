@@ -54,7 +54,8 @@ class ThirdLogin extends Component{
           openid:data.openid,
           oauth_consumer_key:React.constant.qqAppId
         },(result)=>{
-          //注册
+          //注册(先获取环信Token)
+          React.ImPost('users',{username:result.nickname})
           React.postData('User/ThirdRegister',{
             NickName:result.nickname,
             Gender:React.getGenderVal(result.gender),
